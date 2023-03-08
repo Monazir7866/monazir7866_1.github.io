@@ -1,13 +1,19 @@
-(function () {
-  [...document.querySelectorAll(".control")].forEach((button) => {
-    button.addEventListener("click", function () {
-      document.querySelector(".active-btn").classList.remove("active-btn");
-      this.classList.add("active-btn");
-      document.querySelector(".active").classList.remove("active");
-      document.getElementById(button.dataset.id).classList.add("active");
-    });
-  });
-  document.querySelector(".theme-btn").addEventListener("click", () => {
-    document.body.classList.toggle("light-mode");
-  });
-})();
+document.querySelector(".open-btn").addEventListener("click", function(){
+   document.querySelector(".mobileMenu").classList.toggle("show")
+   // console.log("hi");
+});
+document.querySelector(".menu-close").addEventListener("click", function () {
+   document.querySelector(".mobileMenu").classList.toggle("show")
+   // console.log("hi");
+});
+// openBtn()
+
+// var height = $('.fixed-navbar').height();
+
+// $(window).scroll(function () {
+//    if ($(this).scrollTop() > height) {
+//       $('.wpo-site-header').addClass('fixed')
+//    } else {
+//       $('.wpo-site-header').removeClass('fixed')
+//    }
+// })
