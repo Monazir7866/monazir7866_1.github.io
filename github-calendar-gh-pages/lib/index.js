@@ -11,7 +11,7 @@ const DATE_FORMAT1 = "MMM D, YYYY"
 const MONTH_NAMES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 function printDayCount(dayCount) {
-    return `${dayCount} ${(dayCount === 1) ? "day" : "days"}`
+    return  `${dayCount} ${(dayCount === 1) ? "day" : "days"}`
 }
 
 function addTooltips(container) {
@@ -68,7 +68,7 @@ function addTooltips(container) {
  *
  * @return {Promise} A promise returned by the `fetch()` call.
  */
-module.exports = function GitHubCalendar(container, username, options) {
+module.exports = function GitHubCalendar (container, username, options) {
 
     container = $(container)
 
@@ -141,31 +141,31 @@ module.exports = function GitHubCalendar(container, username, options) {
 
             if (options.global_stats !== false) {
                 let parsed = parse($("svg", cal).outerHTML)
-                    , currentStreakInfo = parsed.current_streak
-                        ? `${formatoid(parsed.current_streak_range[0], DATE_FORMAT2)} &ndash; ${formatoid(parsed.current_streak_range[1], DATE_FORMAT2)}`
-                        : parsed.last_contributed
-                            ? `Last contributed in ${formatoid(parsed.last_contributed, DATE_FORMAT2)}.`
-                            : "Rock - Hard Place"
-                    , longestStreakInfo = parsed.longest_streak
-                        ? `${formatoid(parsed.longest_streak_range[0], DATE_FORMAT2)} &ndash; ${formatoid(parsed.longest_streak_range[1], DATE_FORMAT2)}`
-                        : parsed.last_contributed
-                            ? `Last contributed in ${formatoid(parsed.last_contributed, DATE_FORMAT2)}.`
-                            : "Rock - Hard Place"
-                    , firstCol = $("<div>", {
+                  , currentStreakInfo = parsed.current_streak
+                                      ? `${formatoid(parsed.current_streak_range[0], DATE_FORMAT2)} &ndash; ${formatoid(parsed.current_streak_range[1], DATE_FORMAT2)}`
+                                      : parsed.last_contributed
+                                      ? `Last contributed in ${formatoid(parsed.last_contributed, DATE_FORMAT2)}.`
+                                      : "Rock - Hard Place"
+                  , longestStreakInfo = parsed.longest_streak
+                                      ? `${formatoid(parsed.longest_streak_range[0], DATE_FORMAT2)} &ndash; ${formatoid(parsed.longest_streak_range[1], DATE_FORMAT2)}`
+                                      : parsed.last_contributed
+                                      ? `Last contributed in ${formatoid(parsed.last_contributed, DATE_FORMAT2)}.`
+                                      : "Rock - Hard Place"
+                  , firstCol = $("<div>", {
                         "class": "contrib-column contrib-column-first table-column"
-                        , html: `<span class="text-muted">Contributions in the last year</span>
+                      , html: `<span class="text-muted">Contributions in the last year</span>
                                <span class="contrib-number">${parsed.last_year} total</span>
                                <span class="text-muted">${formatoid(addSubtractDate.add(addSubtractDate.subtract(new Date(), 1, "year"), 1, "day"), DATE_FORMAT1)} &ndash; ${formatoid(new Date(), DATE_FORMAT1)}</span>`
                     })
-                    , secondCol = $("<div>", {
+                  , secondCol = $("<div>", {
                         "class": "contrib-column table-column"
-                        , html: `<span class="text-muted">Longest streak</span>
+                      , html: `<span class="text-muted">Longest streak</span>
                                <span class="contrib-number">${printDayCount(parsed.longest_streak)}</span>
                                <span class="text-muted">${longestStreakInfo}</span>`
                     })
-                    , thirdCol = $("<div>", {
+                  , thirdCol = $("<div>", {
                         "class": "contrib-column table-column"
-                        , html: `<span class="text-muted">Current streak</span>
+                      , html: `<span class="text-muted">Current streak</span>
                                <span class="contrib-number">${printDayCount(parsed.current_streak)}</span>
                                <span class="text-muted">${currentStreakInfo}</span>`
                     })
