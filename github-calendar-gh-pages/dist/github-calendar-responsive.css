@@ -92,8 +92,8 @@ rect.ContributionCalendar-day[data-level='4'] {
 .table-column {
     display: table-cell;
     width: 1%;
-    padding-right: 10px;
-    padding-left: 10px;
+    padding-right: 0px;
+    padding-left: 30px;
     vertical-align: top;
 }
 
