@@ -558,11 +558,11 @@ header {
    right: 0;
 }
 
-.static-hero .static-hero-right .floating-item {
+/* .static-hero .static-hero-right .floating-item {
 
    animation: float 6s ease-in-out infinite;
 
-}
+} */
 
 .static-hero .static-hero-right .floating-item img {
    border-radius: 0%;
